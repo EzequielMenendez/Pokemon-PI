@@ -1,7 +1,8 @@
 import { Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemons, getTypes } from "./redux/actions";
+import { getPokemons, getTypes, restorePokemon } from "./redux/actions";
+import axios from "axios";
 import LandingPage from "./views/Landing-Page/Landing_page";
 import Home from "./views/Home/Home";
 import Detail from "./views/Detail/Detail";
@@ -35,23 +36,35 @@ function App() {
       dispatch(getPokemons("All"));
       dispatch(getTypes());
   },[]);
+
   //cada vez que aplico un filtro, un ordenamiento, una busqueda o creo un pokemon, actualizo las paginas
   useEffect(()=>{
     setItems([...pokemons].splice(0, elementsPage));
     setCurrentPage(0);
   }, [lastOrder, lastType, lastOrigin, preName, lastCreate]);
+
   //cada vez que creo un pokemon navego al detalle del mismo
   useEffect(()=>{
     if(lastCreate){
       navigate(`/detail/${lastCreate}`);
     };
   },[lastCreate]);
+
   //si hay un error lo muestro
   useEffect(()=>{
     if(error){
       navigate(`/*`);
     };
   },[error]);
+
+  //funcion para eliminar pokemones de la DB
+  const handleDelete = async(id) =>{
+    await axios.delete(`http://localhost:3001/pokemons/${id}`);
+    dispatch(restorePokemon())
+    setItems([...pokemons].splice(0, elementsPage));
+    setCurrentPage(0);
+    navigate('/home');
+  }
 
   //logica para ir a la pagina anterior
   const prevHandler = ()=>{
@@ -81,7 +94,7 @@ function App() {
         <Route path="/" element={<LandingPage />}/>
         {/* Le paso a home la cantidad de paginas y las funciones para manipularlas */}
         <Route path="/home" element={<Home pokemons={items} prevHandler={prevHandler} nextHandler={nextHandler} currentPage={currentPage}/>}/>
-        <Route path="/detail/:id" element={<Detail />}/>
+        <Route path="/detail/:id" element={<Detail handleDelete={handleDelete}/>}/>
         <Route path="/create" element={<Create />}/>
         <Route path="/*" element={<ErrorPage />}/>
       </Routes>

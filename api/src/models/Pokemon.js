@@ -48,6 +48,6 @@ module.exports = (sequelize) => {
         min: 10,
         max: 200,
       },
-    }
-  }, {timestamps: false});
+    },
+  });
 };

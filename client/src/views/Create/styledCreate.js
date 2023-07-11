@@ -62,8 +62,8 @@ export const ButtonSelected = styled.button`
     @media (max-width: 768px) {
         width: 75px;
         height: 20px;
-    }
-`
+    };
+`;
 
 export const Button = styled.button`
     background-color: #ED1B24;
@@ -75,7 +75,7 @@ export const Button = styled.button`
     @media (max-width: 768px) {
         width: 75px;
         height: 20px;
-    }
+    };
 `;
 
 export const InputName = styled.input`
@@ -84,5 +84,5 @@ export const InputName = styled.input`
     font-size: 12px;
     @media (max-width: 768px) {
         font-size: 9px;
-    }
-`
+    };
+`;
