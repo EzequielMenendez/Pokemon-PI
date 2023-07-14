@@ -5,7 +5,6 @@ const getDbPokemons = require("../handlers/PokemonHandler/getDbPokemons");
 const getDetailPokemons = require("../handlers/PokemonHandler/getDetailPokemon");
 const postPokemons = require("../handlers/PokemonHandler/postPokemon");
 const PokemonByName = require("../handlers/PokemonHandler/getPokemonByName");
-const deletePokemons = require("../handlers/PokemonHandler/deletePokemons");
 
 const pokemonRouter = Router();
 
@@ -16,8 +15,6 @@ pokemonRouter.get("/api", getApiPokemons);
 pokemonRouter.get("/db", getDbPokemons);
 
 pokemonRouter.get("/name", PokemonByName);
-
-pokemonRouter.delete("/:id", deletePokemons);
 
 pokemonRouter.get("/:id", getDetailPokemons);
 

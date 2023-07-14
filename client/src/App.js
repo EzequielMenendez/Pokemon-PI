@@ -57,15 +57,6 @@ function App() {
     };
   },[error]);
 
-  //funcion para eliminar pokemones de la DB
-  const handleDelete = async(id) =>{
-    await axios.delete(`http://localhost:3001/pokemons/${id}`);
-    dispatch(restorePokemon())
-    setItems([...pokemons].splice(0, elementsPage));
-    setCurrentPage(0);
-    navigate('/home');
-  }
-
   //logica para ir a la pagina anterior
   const prevHandler = ()=>{
     const prevPage = currentPage - 1;
@@ -94,7 +85,7 @@ function App() {
         <Route path="/" element={<LandingPage />}/>
         {/* Le paso a home la cantidad de paginas y las funciones para manipularlas */}
         <Route path="/home" element={<Home pokemons={items} prevHandler={prevHandler} nextHandler={nextHandler} currentPage={currentPage}/>}/>
-        <Route path="/detail/:id" element={<Detail handleDelete={handleDelete}/>}/>
+        <Route path="/detail/:id" element={<Detail/>}/>
         <Route path="/create" element={<Create />}/>
         <Route path="/*" element={<ErrorPage />}/>
       </Routes>

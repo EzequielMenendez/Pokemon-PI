@@ -49,5 +49,5 @@ module.exports = (sequelize) => {
         max: 200,
       },
     },
-  });
+  }, {timestamps: false});
 };

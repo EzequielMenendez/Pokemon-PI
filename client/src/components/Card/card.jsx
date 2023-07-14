@@ -60,7 +60,7 @@ function Card(props){
                         ? groundType
                         : t === "ice"
                         ? iceType
-                        : t === "physic"
+                        : t === "psychic"
                         ? physicType
                         : t === "poison"
                         ? poisonType

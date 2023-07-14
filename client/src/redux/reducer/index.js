@@ -38,6 +38,7 @@ function rootReducer(state = initialState, action){
                     pokemonsByOrigin: action.payload.data, 
                     pokemonsByTypes: action.payload.data, 
                     lastOrigin: action.payload.origin,
+                    lastCreate: '',
                 };
             };
             //si el filtro por tipo no es All aplico el filtro por tipo y los ordeno
@@ -49,7 +50,8 @@ function rootReducer(state = initialState, action){
                 pokemons: order, 
                 pokemonsByOrigin, 
                 pokemonsByTypes: filter, 
-                lastOrigin: action.payload.origin, 
+                lastOrigin: action.payload.origin,
+                lastCreate: '',
             };
         case FILTER_TYPES:
             const lastType = action.payload;

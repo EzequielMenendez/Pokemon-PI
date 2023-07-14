@@ -18,10 +18,11 @@ function SearchBar(){
 
     //al cargar el componente traigo a los pokemones con los ultimos filtros aplicados
     useEffect(async()=>{
-        await dispatch(getPokemons(lastOrigin));
         //si habia un personaje buscado lo devuelvo
         if(preName){
             dispatch(getPokemonByName(preName));
+        }else{
+            dispatch(getPokemons(lastOrigin));
         };
     },[]);
 
@@ -30,6 +31,7 @@ function SearchBar(){
         setName(event.target.value);
     };
     const handleReset = () =>{
+        dispatch(getPokemons(lastOrigin));
         dispatch(restorePokemon());
     }
     const handleSearch = ()=>{

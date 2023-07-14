@@ -46,16 +46,3 @@ export const DivTypes = styled.div`
   gap: 5px;
   justify-content: center;
 `;
-
-export const ButtonDelete = styled.button`
-    background-color: #ED1B24;
-  border-radius: 5px;
-  width: 80px;
-  height: 30px;
-  font-family: pokeFont;
-  font-size: 8px;
-  @media (max-width: 768px) {
-    width: 75px;
-    height: 20px;
-  };
-`;
