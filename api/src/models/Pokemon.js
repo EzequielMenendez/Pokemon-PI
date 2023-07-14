@@ -13,6 +13,12 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+      validate: {
+        len: {
+          args: [1, 15],
+          msg: 'Your field must have between 1 and 15 characters.'
+        }
+      }
     },
     img: {
       type: DataTypes.TEXT,

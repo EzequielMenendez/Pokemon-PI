@@ -44,3 +44,8 @@ export const ButtonPages = styled.button`
     transform: scale(1.1);
   }
 `
+
+export const DivLoading = styled.div`
+  display: flex;
+  justify-content: center;
+`
