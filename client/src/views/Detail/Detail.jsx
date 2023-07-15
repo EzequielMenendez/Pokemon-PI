@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import axios from 'axios';
-import { generateError } from '../../redux/actions';
+import { deletePokemon, generateError } from '../../redux/actions';
 import { ButtonDelete, DivCenteredBox, DivDetail, DivTypes, ImgPoke, ImgType } from './styledDetail';
 //importación de imagenes para los types
 import fireType from '../../img/AllTypes/fireType.png';
@@ -29,6 +29,7 @@ import fightingType from '../../img/AllTypes/fightingType.png';
 function Detail(){
     const dispatch = useDispatch();
     const { id } = useParams();
+    const navigate = useNavigate()
     //creo un estado local para guardar al pokemon
     const [ pokemon, setPokemon ] = useState([]);
 
@@ -41,6 +42,11 @@ function Detail(){
             dispatch(generateError(error));
         }
     },[]);
+
+    const handleDelete = ()=>{
+        dispatch(deletePokemon(id));
+        navigate('/home')
+    }
 
     return(
         <DivDetail>
@@ -103,7 +109,7 @@ function Detail(){
                     })}
                 </DivTypes>
                 <p>#{id}</p>
-                {isNaN(id)?<ButtonDelete>Delete</ButtonDelete>:null}
+                {isNaN(id)?<ButtonDelete onClick={handleDelete}>Delete</ButtonDelete>:null}
             </DivCenteredBox>
         </DivDetail>
     );

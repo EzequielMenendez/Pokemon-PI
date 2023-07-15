@@ -88,3 +88,20 @@ export const InputName = styled.input`
         font-size: 9px;
     };
 `;
+
+export const ButtonCreate = styled.button`
+    background-color: #ED1B24;
+    color: #FFD700;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    font-family: pokeFont;
+    font-size: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.3s;
+    
+    &:hover {
+    transform: scale(1.08);
+  };
+`

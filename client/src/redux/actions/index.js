@@ -4,6 +4,7 @@ export const GET_POKEMONS = "GET_POKEMONS";
 export const FILTER_TYPES = "FILTER_TYPES";
 export const ORDERED = "ORDERED";
 export const CREATE_POKEMON = "CREATE_POKEMON";
+export const DELETE_POKEMON = "DELETE_POKEMON"
 export const GET_TYPES = "GET_TYPES";
 export const GET_POKEMON_BY_NAME = "GET_POKEMON_BY_NAME";
 export const RESTORE_POKEMON = "RESTORE_POKEMON";
@@ -95,6 +96,20 @@ export const createPokemon = (pokemon) => {
                 type: ERROR,
                 payload: {message: error.response.data.error, status: error.response.request.status}
             });
+        }
+    }
+}
+
+export const deletePokemon = (id) => {
+    return async function(dispatch){
+        try {
+            await axios.delete(`http://localhost:3001/pokemons/${id}`);
+            return dispatch({
+                type: DELETE_POKEMON,
+                payload: id
+            })
+        } catch (error) {
+            
         }
     }
 }

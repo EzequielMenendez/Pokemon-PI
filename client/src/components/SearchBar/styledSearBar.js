@@ -47,7 +47,7 @@ export const ButtonName = styled.button`
     cursor: pointer;
     @media (max-width: 768px) {
         font-size: 10px;
-    }
+    };
 `;
 
 export const DivName = styled.div`
@@ -64,5 +64,5 @@ export const SelectFilter = styled.select`
     cursor: pointer;
     @media (max-width: 768px) {
         font-size: 10px;
-    }
+    };
 `

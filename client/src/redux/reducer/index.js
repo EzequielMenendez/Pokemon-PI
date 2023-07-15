@@ -1,5 +1,5 @@
 import ordered from "../../functions/Ordered/ordered";
-import { CREATE_POKEMON, ERROR, FILTER_TYPES, GET_POKEMONS, GET_POKEMON_BY_NAME, GET_TYPES, ORDERED, RESTORE_ERROR, RESTORE_POKEMON } from "../actions";
+import { CREATE_POKEMON, DELETE_POKEMON, ERROR, FILTER_TYPES, GET_POKEMONS, GET_POKEMON_BY_NAME, GET_TYPES, ORDERED, RESTORE_ERROR, RESTORE_POKEMON } from "../actions";
 
 let order = [];
 
@@ -13,6 +13,7 @@ const initialState = {
     lastType: 'All',
     preName: '',
     lastCreate: '',
+    lastDelete: '',
     error:''
 };
 
@@ -88,6 +89,19 @@ function rootReducer(state = initialState, action){
                 ...state,
                 lastCreate: action.payload,
             };
+        case DELETE_POKEMON:
+            //hago un filtro para eliminar al eliminado de las copias y ordeno
+            const filterOrigin = state.pokemonsByOrigin.filter(poke=> poke.id !== action.payload)
+            const filterDelete = state.pokemonsByTypes.filter(poke => poke.id !== action.payload);
+            order = ordered(filterDelete, state.lastOrder);
+            return{
+                ...state,
+                preName: '',
+                pokemons: order,
+                pokemonsByOrigin: filterOrigin,
+                pokemonsByTypes: filterDelete,
+                lastDelete: action.payload,
+            }
         case GET_POKEMON_BY_NAME:
             //actualizo pokemon y prename con la info del pokemon buscado
             return{

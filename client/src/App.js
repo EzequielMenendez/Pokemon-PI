@@ -23,6 +23,7 @@ function App() {
   const lastOrigin = useSelector((state)=> state.lastOrigin);
   const preName = useSelector((state)=> state.preName);
   const lastCreate = useSelector((state)=> state.lastCreate);
+  const lastDelete = useSelector((state)=> state.lastDelete);
   const error = useSelector((state)=> state.error);
 
   //Creo estados locales para hacer el paginado
@@ -41,7 +42,7 @@ function App() {
   useEffect(()=>{
     setItems([...pokemons].splice(0, elementsPage));
     setCurrentPage(0);
-  }, [lastOrder, lastType, lastOrigin, preName, lastCreate]);
+  }, [lastOrder, lastType, lastOrigin, preName, lastCreate, lastDelete]);
 
   //cada vez que creo un pokemon navego al detalle del mismo
   useEffect(()=>{

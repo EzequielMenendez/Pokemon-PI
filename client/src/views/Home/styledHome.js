@@ -1,4 +1,4 @@
-import {styled, keyframes} from 'styled-components';
+import { styled } from 'styled-components';
 import background from "../../img/pokeFondo.png"
 
 export const DivContainer = styled.div`
@@ -16,16 +16,6 @@ export const DivPages = styled.div`
     justify-content: center;
 `
 
-const hoverAnimation = keyframes`
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.1);
-  }
-`;
-
 export const ButtonPages = styled.button`
     background-color: #ED1B24;
     color: 	#FFD700;
@@ -38,7 +28,6 @@ export const ButtonPages = styled.button`
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: transform 0.3s;
-    animation: ${hoverAnimation} 0.3s ease-in-out;
 
     &:hover {
     transform: scale(1.1);

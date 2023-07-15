@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import validate from "../../functions/Validate/validate";
-import { ButtonSelected, Button, DivCreate, FormCenteredBox, DivInputs, DivTypes, InputName } from "./styledCreate";
+import { ButtonSelected, Button, DivCreate, FormCenteredBox, DivInputs, DivTypes, InputName, ButtonCreate } from "./styledCreate";
 import { createPokemon } from "../../redux/actions";
 
 function Create(){
@@ -120,7 +120,7 @@ function Create(){
                 </DivInputs>
                 <div>
                     {/* si existe algun error no muestro el boton de enviar */}
-                    {Object.keys(errors).length ? null : <button type="submit">Create Pokemon</button>}
+                    {Object.keys(errors).length ? null : <ButtonCreate type="submit">Create Pokemon</ButtonCreate>}
                 </div>
             </FormCenteredBox>
             <h3>{creating}</h3>
