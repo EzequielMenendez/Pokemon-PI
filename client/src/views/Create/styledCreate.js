@@ -59,6 +59,7 @@ export const ButtonSelected = styled.button`
     height: 30px;
     font-family: pokeFont;
     font-size: 8px;
+    cursor: pointer;
     @media (max-width: 768px) {
         width: 75px;
         height: 20px;
@@ -72,6 +73,7 @@ export const Button = styled.button`
     height: 30px;
     font-family: pokeFont;
     font-size: 8px;
+    cursor: pointer;
     @media (max-width: 768px) {
         width: 75px;
         height: 20px;

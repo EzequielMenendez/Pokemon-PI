@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled, keyframes } from "styled-components";
 import background from "../../img/pokeFondo.png";
 
 export const DivDetail = styled.div`
@@ -46,3 +46,29 @@ export const DivTypes = styled.div`
   gap: 5px;
   justify-content: center;
 `;
+
+const hoverAnimation = keyframes`
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+`;
+
+export const ButtonDelete = styled.button`
+  background-color: #ED1B24;
+  color: #FFD700;
+  border-radius: 5px;
+  font-family: pokeFont;
+  font-size: 10px;
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  animation: ${hoverAnimation} 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.08);
+  }
+`

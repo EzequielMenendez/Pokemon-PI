@@ -21,7 +21,7 @@ function SearchBar(){
         //si habia un personaje buscado lo devuelvo
         if(preName){
             dispatch(getPokemonByName(preName));
-        }else{
+        }else{//si no devuelvo los pokemones con los ultimos filtros
             dispatch(getPokemons(lastOrigin));
         };
     },[]);

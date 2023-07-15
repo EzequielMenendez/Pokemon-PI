@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import axios from 'axios';
 import { generateError } from '../../redux/actions';
-import { DivCenteredBox, DivDetail, DivTypes, ImgPoke, ImgType } from './styledDetail';
+import { ButtonDelete, DivCenteredBox, DivDetail, DivTypes, ImgPoke, ImgType } from './styledDetail';
 //importación de imagenes para los types
 import fireType from '../../img/AllTypes/fireType.png';
 import waterType from '../../img/AllTypes/waterType.png';
@@ -103,6 +103,7 @@ function Detail(){
                     })}
                 </DivTypes>
                 <p>#{id}</p>
+                {isNaN(id)?<ButtonDelete>Delete</ButtonDelete>:null}
             </DivCenteredBox>
         </DivDetail>
     );

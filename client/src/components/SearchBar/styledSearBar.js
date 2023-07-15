@@ -29,6 +29,7 @@ export const ButtonSearch = styled.button`
     width: 88px;
     height:27px;
     border-radius: 5px;
+    cursor: pointer;
     @media (max-width: 768px) {
         width: 80px;
         font-size: 10px;
@@ -43,6 +44,7 @@ export const ButtonName = styled.button`
     width: 120px;
     height:33px;
     border-radius: 5px;
+    cursor: pointer;
     @media (max-width: 768px) {
         font-size: 10px;
     }
@@ -59,6 +61,7 @@ export const SelectFilter = styled.select`
     color: #FFD700;
     font-size: 12px;
     height:22px;
+    cursor: pointer;
     @media (max-width: 768px) {
         font-size: 10px;
     }
