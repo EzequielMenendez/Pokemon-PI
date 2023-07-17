@@ -41,7 +41,7 @@ export const ButtonName = styled.button`
     font-family: pokeFont;
     font-size: 12px;
     color: #FFD700;
-    width: 120px;
+    min-width: 120px;
     height:33px;
     border-radius: 5px;
     cursor: pointer;

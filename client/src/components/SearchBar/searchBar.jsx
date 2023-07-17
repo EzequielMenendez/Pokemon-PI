@@ -33,7 +33,7 @@ function SearchBar(){
     const handleReset = () =>{
         dispatch(getPokemons(lastOrigin));
         dispatch(restorePokemon());
-    }
+    };
     const handleSearch = ()=>{
         dispatch(getPokemonByName(name));
         setName('');

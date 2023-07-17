@@ -120,7 +120,7 @@ function Create(){
                 </DivInputs>
                 <div>
                     {/* si existe algun error no muestro el boton de enviar */}
-                    {Object.keys(errors).length ? null : <ButtonCreate type="submit">Create Pokemon</ButtonCreate>}
+                    {Object.keys(errors).length > 0 || creating ? null : <ButtonCreate type="submit">Create Pokemon</ButtonCreate>}
                 </div>
             </FormCenteredBox>
             <h3>{creating}</h3>

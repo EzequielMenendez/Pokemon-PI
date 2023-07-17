@@ -1,8 +1,7 @@
 import { Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemons, getTypes, restorePokemon } from "./redux/actions";
-import axios from "axios";
+import { getPokemons, getTypes } from "./redux/actions";
 import LandingPage from "./views/Landing-Page/Landing_page";
 import Home from "./views/Home/Home";
 import Detail from "./views/Detail/Detail";
@@ -38,7 +37,7 @@ function App() {
       dispatch(getTypes());
   },[]);
 
-  //cada vez que aplico un filtro, un ordenamiento, una busqueda o creo un pokemon, actualizo las paginas
+  //cada vez que aplico un filtro, un ordenamiento, una busqueda o creo/elimino un pokemon, actualizo las paginas
   useEffect(()=>{
     setItems([...pokemons].splice(0, elementsPage));
     setCurrentPage(0);
@@ -46,16 +45,12 @@ function App() {
 
   //cada vez que creo un pokemon navego al detalle del mismo
   useEffect(()=>{
-    if(lastCreate){
-      navigate(`/detail/${lastCreate}`);
-    };
+    if(lastCreate)navigate(`/detail/${lastCreate}`);
   },[lastCreate]);
 
   //si hay un error lo muestro
   useEffect(()=>{
-    if(error){
-      navigate(`/*`);
-    };
+    if(error)navigate(`/*`);
   },[error]);
 
   //logica para ir a la pagina anterior

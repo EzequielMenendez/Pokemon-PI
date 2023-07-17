@@ -25,7 +25,7 @@ function Home(props){
             <DivPages>
                 <ButtonPages onClick={props.prevHandler}>&lt;&lt;&lt;</ButtonPages>
                 <p>{props.currentPage + 1}</p>
-                <ButtonPages onClick={props.nextHandler}>&gt;&gt;&gt;   </ButtonPages>
+                <ButtonPages onClick={props.nextHandler}>&gt;&gt;&gt;</ButtonPages>
             </DivPages>
             {/* Llamo a cards pasandoles los pokemones por pagina */}
             {pokemons.length?<Cards pokemons={pokemons}/>:<DivLoading><p>{loading}</p></DivLoading>}

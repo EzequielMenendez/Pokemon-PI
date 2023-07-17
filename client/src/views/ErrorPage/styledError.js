@@ -1,7 +1,7 @@
 import { styled } from "styled-components"
 import background from "../../img/pokeFondo.png"
 
-export const DivCreate = styled.div`
+export const DivError = styled.div`
     background-image: url(${background});
     background-repeat: no-repeat;
     background-size: cover;
