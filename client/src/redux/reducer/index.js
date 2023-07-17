@@ -21,7 +21,7 @@ function rootReducer(state = initialState, action){
     switch(action.type){
         case GET_POKEMONS:
             //Este if se ejecuta cuando cargo la pagina por primera vez
-            if(!state.pokemonsByOrigin.length){
+            if(!state.pokemonsByOrigin.length && !state.lastDelete){
                 return{
                     ...state, 
                     pokemons: action.payload.data, 
