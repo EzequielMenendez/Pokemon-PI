@@ -6,6 +6,7 @@ const newImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebo
 //verifico si el pokemon existe en la api o en la base de datos
 const postPokemons = async(req, res)=>{
     const { name } = req.body;
+    if(!name)return res.status(400).json({error: "Parameter required to create the pokemon are missing"});
     const minName = name.toLowerCase();
     try {
         //si el pokemon existe lanzo un error

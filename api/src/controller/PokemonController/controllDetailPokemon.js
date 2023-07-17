@@ -12,6 +12,7 @@ const controllDetailPokemon = async(id)=>{
                 through: { attributes: [] },
             }
         });
+        if(!findPokemon)throw Error("Pokemon not found");
         return findPokemon;
     }
     //Busco al pokemon en la api
