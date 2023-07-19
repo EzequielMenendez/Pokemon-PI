@@ -11,9 +11,8 @@ function Cards(props){
     return(
         <DivCards>
             {props.pokemons.map((elemento)=>(
-                <Link to={`/detail/${elemento.id}`} style={noneDecoration}>
+                <Link key={elemento.id} to={`/detail/${elemento.id}`} style={noneDecoration}>
                     <Card 
-                    key={elemento.id}
                     id={elemento.id}
                     name={elemento.name}
                     img={elemento.img}
