@@ -5,7 +5,8 @@ const newImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebo
 
 //verifico si el pokemon existe en la api o en la base de datos
 const postPokemons = async(req, res)=>{
-    const { name } = req.body;
+    const { name, type } = req.body;
+    if(!type.length || type.length > 4 )return res.status(400).json({error: "the pokemon must have between 1 and 4 types"});
     if(!name)return res.status(400).json({error: "Parameter required to create the pokemon are missing"});
     const minName = name.toLowerCase();
     try {
@@ -22,7 +23,7 @@ const postPokemons = async(req, res)=>{
 const createPokemons = async(req, res)=>{
     const { name, img, hp, damage, defense, speed, type } = req.body;
     try {
-        if(!name || !hp || !damage || !defense || !speed || !type )return res.status(400).json({error: "Parameter required to create the pokemon are missing"});
+        if(!name || !hp || !damage || !defense || !speed)return res.status(400).json({error: "Parameter required to create the pokemon are missing"});
         const minName = name.toLowerCase();
         if(!img){
             const id = await controllCreatePokemon(minName, newImg , hp, damage, defense, speed, type);
